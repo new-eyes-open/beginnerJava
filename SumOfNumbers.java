@@ -1,7 +1,7 @@
 //A program that will give the sum of the digits in a whole number between 0 and 10,000
 import javax.swing.JOptionPane;
 
-public class sumOfNumbers {
+public class SumOfNumbers {
 	public static void main(String[] args) {
 	//Dialog box prompting a number
 	String wholeNumberString = JOptionPane.showInputDialog(
