@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class gratuityCalc {
+public class GratuityCalc {
   public static void main(String[] args) {
 	
 	//Dialog box prompting bill amount and input conversion to double
