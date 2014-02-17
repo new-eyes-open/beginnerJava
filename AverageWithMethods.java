@@ -5,7 +5,7 @@
   
 import javax.swing.JOptionPane;
   
-public class Higginsp2 {
+public class AverageWithMethods {
 	
 	public static void main(String [] args) {
 		int howMany = 0;
