@@ -27,7 +27,7 @@ public class Higginsp2 {
 		
 		//desired output
 		JOptionPane.showMessageDialog(null, "You entered " + howMany + " numbers." + 
-											"\nThe average of your inputs is " + average);
+						    "\nThe average of your inputs is " + average);
 	}
 	
 	//sentinel value method
@@ -43,7 +43,7 @@ public class Higginsp2 {
 		float userInputs = 1;
 		while (userInputs != 0) {
 		String userInputsString = JOptionPane.showInputDialog("Enter a number. When you are finished" + 
-															  "\nentering numbers, enter 0");
+				  				      "\nentering numbers, enter 0");
 		userInputs = Float.parseFloat(userInputsString);
 		sum += userInputs;
 		}
