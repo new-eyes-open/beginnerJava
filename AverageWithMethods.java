@@ -39,7 +39,6 @@ public class AverageWithMethods {
 	
 	//sum of inputs method
 	public static float userInputs(float sum) {
-		int howMany = 1;
 		float userInputs = 1;
 		while (userInputs != 0) {
 		String userInputsString = JOptionPane.showInputDialog("Enter a number. When you are finished" + 
