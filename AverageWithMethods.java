@@ -1,7 +1,6 @@
-/**Don't forget about the header!!
-  *Purpose: Generate an average based on user inputs.
-  *Requirements: Input, calculations, and output must be separate methods using dialog boxes.
-  */
+/* Purpose: Generate an average based on user inputs.
+ * Requirements: Input, calculations, and output must be separate methods using dialog boxes.
+ */
   
 import javax.swing.JOptionPane;
   
@@ -12,48 +11,60 @@ public class AverageWithMethods {
 		float sum = 0;
 		float average = 0;
 		
-		//prompt the user for a sentinel value
+		//call howMany method for sentinel value
 		howMany = howMany(howMany);
 		
-		//add user inputs
-		sum = userInputs(sum);
+		//call userInputs method for collection and sum of user inputs
+		sum = userInputs(sum, howMany);
 		
-		//average user inputs with sum / howMany
+		//call averageOfNumbers method for average of user inputs
 		average = averageOfNumbers(sum, howMany);
 		
-		//inform the user if their sum > 100
+		//issue warning if sum > 100
 		if (sum > 100)
 			JOptionPane.showMessageDialog(null, "Values have exceeded a sum 100");
 		
-		//desired output
+		//output to user
 		JOptionPane.showMessageDialog(null, "You entered " + howMany + " numbers." + 
-						    "\nThe average of your inputs is " + average);
+					       	    "\nThe average of your inputs is " + average);
 	}
 	
-	//sentinel value method
+	/** 
+	 * howMany method for sentinel value
+	 * @param howMany
+	 * @return howMany
+	 */	
 	public static int howMany(int howMany) {
 		String howManyString = JOptionPane.showInputDialog("How many numbers would you like to average?");
 		howMany = Integer.parseInt(howManyString);
 		return howMany;
 	}
 	
-	//sum of inputs method
-	public static float userInputs(float sum) {
-		float userInputs = 1;
-		while (userInputs != 0) {
-		String userInputsString = JOptionPane.showInputDialog("Enter a number. When you are finished" + 
-				  				      "\nentering numbers, enter 0");
+	/**
+	 * userInputs method for input and sum of input
+	 * @param sum
+	 * @param howMany
+	 * @return sum
+	 */
+	public static float userInputs(float sum, int howMany) {
+		float userInputs;
+		int numberOfInputs;
+		//for statement that only allows howMany inputs
+		for (numberOfInputs = 0; numberOfInputs < howMany; numberOfInputs++) {
+			String userInputsString = JOptionPane.showInputDialog("Enter a number.");
 		userInputs = Float.parseFloat(userInputsString);
 		sum += userInputs;
 		}
 		return sum;
-		
 	}
 	
-	//average of inputs method
+	/**
+	 * averageOfNumbers method of average of user input
+	 * @param sum
+	 * @param howMany
+	 * @return average
+	 */
 	public static float averageOfNumbers(float sum, int howMany) {
-		sum = userInputs(sum);
-		howMany = howMany(howMany);
 		float average = sum / howMany;
 		return average;
 	}
