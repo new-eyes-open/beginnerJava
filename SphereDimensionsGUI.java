@@ -3,8 +3,9 @@
  * methods to return the volume, surface area, any other methods that make sense
  */
 
-import java.util.Scanner;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.Event.*;
 
 public class SphereDimensionsGUI {
 	
@@ -14,19 +15,23 @@ public class SphereDimensionsGUI {
 		JPanel spherePanel = SphereDimensionsGUI.spherePanel();
 		JFrame sphereWindow = SphereDimensionsGUI.sphereWindow();
 		sphereWindow.add(spherePanel);
-		Scanner input = new Scanner(System.in);
-		double radius = input.nextDouble();
-		double volume = sphereVolume(radius);
-		double diameter = sphereDiameter(radius);
-		double circumference = sphereCircumference(radius);
-		double surface = surfaceArea(radius);
+		JButton buttonOK = SphereDimensionsGUI.buttonOK();
+	}
 		
-		//Display this message box when the user clicks 'OK'
-		JOptionPane.showMessageDialog(null, "Your sphere's diameter is " + diameter +
+	
+		public void actionPerformed(ActionEvent evt) {
+			JTextField radiusText = SphereDimensionsGUI.radiusText();
+			double radius = Double.parseDouble(radiusText.getText());
+			double volume = sphereVolume(radius);
+			double diameter = sphereDiameter(radius);
+			double circumference = sphereCircumference(radius);
+			double surface = surfaceArea(radius);
+			JOptionPane.showMessageDialog(null, "Your sphere's diameter is " + diameter +
 				"\nIts circumference is " + circumference +
 				"\nIts surface area is " + surface +
 				"\nIts volume is " + volume);
-	}
+			  }  
+	
 	
 	/** dimension methods
 	 * @param radius
@@ -85,8 +90,8 @@ public class SphereDimensionsGUI {
 	
 	public static JFrame sphereWindow() {
 		JFrame sphereWindow = new JFrame();
-		sphereWindow.setTitle("Enter the radius of your sphere below to receive its dimensions.");
-		sphereWindow.setSize(300, 100);
+		sphereWindow.setTitle("Enter the radius of your sphere below.");
+		sphereWindow.setSize(360, 80);
 		sphereWindow.setLocation(200, 100);
 		sphereWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		sphereWindow.setVisible(true);
