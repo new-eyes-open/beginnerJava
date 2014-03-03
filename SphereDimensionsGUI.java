@@ -4,10 +4,10 @@
  */
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.Event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SphereDimensionsGUI {
+public class Higginshw4 {
 	
 	public static void main(String[] args) {
 		
@@ -16,23 +16,23 @@ public class SphereDimensionsGUI {
 		JFrame sphereWindow = SphereDimensionsGUI.sphereWindow();
 		sphereWindow.add(spherePanel);
 		JButton buttonOK = SphereDimensionsGUI.buttonOK();
-	}
 		
-	
-		public void actionPerformed(ActionEvent evt) {
-			JTextField radiusText = SphereDimensionsGUI.radiusText();
-			double radius = Double.parseDouble(radiusText.getText());
-			double volume = sphereVolume(radius);
-			double diameter = sphereDiameter(radius);
-			double circumference = sphereCircumference(radius);
-			double surface = surfaceArea(radius);
-			JOptionPane.showMessageDialog(null, "Your sphere's diameter is " + diameter +
-				"\nIts circumference is " + circumference +
-				"\nIts surface area is " + surface +
-				"\nIts volume is " + volume);
-			  }  
-	
-	
+		buttonOK.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				JTextField radiusText = SphereDimensionsGUI.radiusText();
+				double radius = Double.parseDouble(radiusText.getText());
+				double volume = sphereVolume(radius);
+				double diameter = sphereDiameter(radius);
+				double circumference = sphereCircumference(radius);
+				double surface = surfaceArea(radius);
+				JOptionPane.showMessageDialog(null, "Your sphere's diameter is " + diameter +
+						"\nIts circumference is " + circumference +
+						"\nIts surface area is " + surface +
+						"\nIts volume is " + volume);
+			}
+		});
+	}
+
 	/** dimension methods
 	 * @param radius
 	 * @return sphereVolume, surfaceArea, sphereDiameter, sphereCircumference
@@ -68,7 +68,7 @@ public class SphereDimensionsGUI {
 	}
 	
 	public static JTextField radiusText() {
-		JTextField radiusText = new JTextField("                           ");
+		JTextField radiusText = new JTextField(5);
 		return radiusText;
 	}
 	
@@ -97,5 +97,4 @@ public class SphereDimensionsGUI {
 		sphereWindow.setVisible(true);
 		return sphereWindow;
 		}
-
 }
