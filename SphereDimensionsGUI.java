@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Higginshw4 {
+public class SphereDimensionsGUI {
 	
 	public static void main(String[] args) {
 		
