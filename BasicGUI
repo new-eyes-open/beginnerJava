@@ -1,0 +1,98 @@
+import javax.swing.*;
+
+public class BasicGUI extends JFrame {
+	
+	//reserve component names
+	private JButton jbtOK;
+	private JTextField jtfFirstName;
+	private JTextField jtfLastName;
+	private JTextField jtfAge;
+	private JComboBox jcbState;
+	private JTextArea jtaResults;
+	private JRadioButton jrbMale;
+	private JRadioButton jrbFemale;
+	//create array to store states
+	private String[] homeStates = {"Select your home state", "Alabama", "Alaska", "Arizona", "Arkansas", "California", 
+			"Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
+			"Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+			"Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York",
+			"North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+			"South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virgina", "Washington", "West Virginia", "Wisconsin",
+			"Wyoming"};
+	
+	public BasicGUI() {
+		//create components
+		jbtOK = new JButton("OK");
+		jtfFirstName = new JTextField(10);
+		jtfLastName = new JTextField(10);
+		jtfAge = new JTextField(3);
+		jcbState = new JComboBox(homeStates);
+		jtaResults = new JTextArea();
+		jrbMale = new JRadioButton("Male");
+		jrbFemale = new JRadioButton("Female");
+		
+		//"north" panel contains user input components
+		JPanel jpTextButton = new JPanel();
+		jpTextButton.setLayout(new GridLayout(5, 2, 5, 5));
+		jpTextButton.add(new JLabel("First Name: "));
+		jpTextButton.add(jtfFirstName);
+		jpTextButton.add(new JLabel("Last Name: "));
+		jpTextButton.add(jtfLastName);
+		jpTextButton.add(new JLabel("Age :"));
+		jpTextButton.add(jtfAge);
+		jpTextButton.add(jrbMale);
+		jpTextButton.add(jrbFemale);
+		jpTextButton.add(jcbState);
+				
+		//"center" panel contains output components
+		JPanel jpUserOutput = new JPanel();
+		jpUserOutput.setLayout(new GridLayout(1, 1));
+		jpUserOutput.add(jtaResults);
+		jtaResults.setEditable(false);
+		
+		//"south" panel contains OK button
+		JPanel jpOKButton = new JPanel();
+		jpOKButton.setLayout(new GridLayout(1, 3));
+		jpOKButton.add(new JLabel(""));
+		jpOKButton.add(jbtOK);
+		jpOKButton.add(new JLabel(""));
+
+		//add panels to frame
+		add(jpTextButton, BorderLayout.NORTH);
+		add(jpUserOutput, BorderLayout.CENTER);
+		add(jpOKButton, BorderLayout.SOUTH);
+		
+		//add listener to OK button and assign actions
+		jbtOK.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				jtaResults.setText("");
+				String firstName = jtfFirstName.getText();
+				String lastName = jtfLastName.getText();
+				String userAge = jtfAge.getText();
+				String userGender = null;
+				String userState = (String) jcbState.getSelectedItem(); 
+				
+				if(jrbMale.isSelected()) {
+					userGender = "Male";
+				}else if(jrbFemale.isSelected()){
+					userGender = "Female";
+				}
+				
+				jtaResults.append(firstName + "\n" + lastName + "\n" + userAge + "\n" + userGender + "\n" + userState);
+				
+			}
+		}
+	);
+
+}		
+	
+	//construct frame
+	public static void main(String[] args) {
+		BasicGUI frame = new BasicGUI();
+		frame.setTitle("Please fill in the information below.");
+		frame.setSize(225, 300);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		}
+}
