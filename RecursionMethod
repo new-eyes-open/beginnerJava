@@ -1,21 +1,19 @@
 import java.util.Scanner;
 
-public class RecursionMethod {
-	
+public class Higginsp3 {
 	public static void main(String[] args) {
-		double total = 0;
-		double sum = getSize(total);
+		int i = 0;
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter an integer.");
+		i = input.nextInt();
+		double sum = getSum(i);
 		System.out.println("The total is " + sum);
 	}
-		
-  public static double getSize(double total) {
-	  Scanner input = new Scanner(System.in);
-	  System.out.println("Enter an integer.");
-	  int userInt = input.nextInt();
-	  int i = 0;
-	  for (i = 1; i < userInt; i++) {
-	  total += (1 / i);
-	  }
-	  return total;
-  }
+
+	public static double getSum(int i) {
+		if(i == 1){
+            return 1;
+        }
+        return ((double)1/i) + getSum(i-1);
+}
 }
