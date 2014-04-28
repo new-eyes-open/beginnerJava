@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class RecursionMethod {
+	
+	public static void main(String[] args) {
+		double total = 0;
+		double sum = getSize(total);
+		System.out.println("The total is " + sum);
+	}
+		
+  public static double getSize(double total) {
+	  Scanner input = new Scanner(System.in);
+	  System.out.println("Enter an integer.");
+	  int userInt = input.nextInt();
+	  int i = 0;
+	  for (i = 1; i < userInt; i++) {
+	  total += (1 / i);
+	  }
+	  return total;
+  }
+}
