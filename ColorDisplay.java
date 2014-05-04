@@ -1,9 +1,4 @@
 /**
- * Matt Higgins
- * CMIS 242
- * Final Project
- * 4 May 2014
- * 
  * Write a Java application that effectively uses Java collections to store pairs of unique colors 
  * and their unique hexadecimal values. (For example, Red -> FF0000). Store up to 20 of these pairs. 
  * 
